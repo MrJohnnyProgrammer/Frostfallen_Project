@@ -1,0 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+Face_Archetype.uasset filter=lfs diff=lfs merge=lfs -text
+Frostfallen_FaceMesh.uasset filter=lfs diff=lfs merge=lfs -text
+FF_Base_clothing_WP_2.uasset filter=lfs diff=lfs merge=lfs -text
