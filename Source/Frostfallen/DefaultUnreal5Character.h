@@ -623,8 +623,6 @@ public:
 	UFUNCTION()
 		void AimReverseTimeLineFloatReturn(float value);
 
-	UFUNCTION()
-		void OnAimTimelineFinished();
 
 	UFUNCTION()
 		void OnSprintTimelineFinished();
@@ -643,13 +641,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void SprintCamera(bool first);
-
-
-	UFUNCTION(BlueprintCallable)
-		void SprintTimeLineFloatReturn(float value);
-
-	UFUNCTION(BlueprintCallable)
-		void OnToggledTimelineFinished();
 
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 

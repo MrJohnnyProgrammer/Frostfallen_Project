@@ -566,7 +566,7 @@ void AEnemy::DirectionMovement(TArray<FVector> pathPoints)
 		UKismetMathLibrary::BreakRotator(unitRot, emptyX, emptyY, yawAngle);
 		UKismetMathLibrary::BreakRotator(GetActorRotation(), emptyX2, emptyY2, yawAngle2);
 		
-//		DrawDebugLine(GetWorld(), navPathPoints[navPathIndex], navPathPoints[navPathIndex] + FVector(0.0f, 0.0f, 1000.0f), FColor::Orange, false, 0.f, 0, 2.0f);
+		DrawDebugLine(GetWorld(), navPathPoints[navPathPoints.Num() - 1], navPathPoints[navPathPoints.Num() - 1] + FVector(0.0f, 0.0f, 1000.0f), FColor::Orange, false, 0.f, 0, 2.0f);
 	//	DrawDebugLine(GetWorld(), navPathPoints[0], navPathPoints[0] + FVector(0.0f, 0.0f, 1000.0f), FColor::Red, false, 0.f, 0, 2.0f);
 		
 		if (navPathPoints.Num() != 0)

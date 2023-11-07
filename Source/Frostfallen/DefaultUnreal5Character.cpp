@@ -734,10 +734,6 @@ void ADefaultUnreal5Character::AimReverseTimeLineFloatReturn(float value)
 	FollowCamera->SetRelativeRotation(FMath::Lerp(FollowCamera->GetRelativeRotation(), cameraROffset, value));
 }
 
-void ADefaultUnreal5Character::SprintTimeLineFloatReturn(float value)
-{
-}
-
 void ADefaultUnreal5Character::OnSprintTimelineFinished()
 {
 	bSprintCamera1st = false;
@@ -761,16 +757,6 @@ void ADefaultUnreal5Character::ToggledReverseTimeLineFloatReturn(float value)
 	FollowCamera->SetRelativeRotation(FMath::Lerp(FollowCamera->GetRelativeRotation(), cameraROffset, value));
 }
 
-
-void ADefaultUnreal5Character::OnAimTimelineFinished()
-{
-}
-
-
-
-void ADefaultUnreal5Character::OnToggledTimelineFinished()
-{
-}
 
 float ADefaultUnreal5Character::GetWalkingDirectionAngle() 
 {
@@ -1739,7 +1725,7 @@ void ADefaultUnreal5Character::Death()
 
 	if (bFallDeath)
 	{
-		UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
+	//	UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
 		GetMesh()->SetCollisionProfileName(FName("Ragdoll"));
 		animInstance->Montage_Play(characterAnims, 1.f);
 		animInstance->Montage_JumpToSection(FName("Death"), characterAnims);
@@ -1751,7 +1737,7 @@ void ADefaultUnreal5Character::Death()
 	}
 	else
 	{
-		UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
+	//	UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
 	
 		animInstance->Montage_Play(characterAnims, 1.f);
 		animInstance->Montage_JumpToSection(FName("Death"), characterAnims);
