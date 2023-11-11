@@ -370,7 +370,10 @@ float AEnemy::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, A
 	ABat* damagerBat;
 	damagerBat = Cast<ABat>(DamageCauser);
 
-	FRotator kickerRotation = EventInstigator->GetControlRotation();
+	FRotator kickerRotation;
+
+	if(EventInstigator)
+		kickerRotation = EventInstigator->GetControlRotation();
 	//UE_LOG(LogTemp, Warning, TEXT("Damage = %f"), Damage);
 
 	if (Damage == 5)
