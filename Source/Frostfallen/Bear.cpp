@@ -16,22 +16,7 @@ void ABear::BeginPlay()
 	animInstance = GetMesh()->GetAnimInstance();
 	health = 6;
 	bear = true;
-//	dead = false;
-	//	RealSpawnAxe();	
-/*	FActorSpawnParameters spawnInfo;
-	AActor* newAxe = GetWorld()->SpawnActor<AActor>(weaponBlueprint, GetActorLocation(), GetActorRotation(), spawnInfo);
-	AAxe* axe1 = Cast<AAxe>(newAxe);
-	axe1->HeadAxeAttach(this, FName("axe1"));
-	axe1->bearAss = true;
-	AActor* newAxe2 = GetWorld()->SpawnActor<AActor>(weaponBlueprint, GetActorLocation(), GetActorRotation(), spawnInfo);
-	AAxe* axe2 = Cast<AAxe>(newAxe2);
-	axe2->HeadAxeAttach(this, FName("axe2"));
-	axe2->bearAss = true;
-	AActor* newAxe3 = GetWorld()->SpawnActor<AActor>(weaponBlueprint, GetActorLocation(), GetActorRotation(), spawnInfo);
-	AAxe* axe3 = Cast<AAxe>(newAxe3);
-	axe3->HeadAxeAttach(this, FName("axe3"));
-	axe3->bearAss = true;
-	*/
+
 
 	bRotate = false;
 }
@@ -50,13 +35,13 @@ void ABear::Turn(bool bDirection)
 
 		if (bDirection)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("left"));
+		//	UE_LOG(LogTemp, Warning, TEXT("left"));
 			animInstance->Montage_Play(attackMontage, 1.f);
 			animInstance->Montage_JumpToSection(FName("turnLeft"));
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("right"));
+		//	UE_LOG(LogTemp, Warning, TEXT("right"));
 			animInstance->Montage_Play(attackMontage, 1.f);
 			animInstance->Montage_JumpToSection(FName("turnRight"));
 		}

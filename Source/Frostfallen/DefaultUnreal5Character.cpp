@@ -792,7 +792,6 @@ void ADefaultUnreal5Character::DodgeAndSprint()
 	if (bDodgeBufferWindow)
 	{
 		bDodgeBuffer = true;
-	//	UE_LOG(LogTemp, Warning, TEXT("sex2"));
 	}
 	if (!bFreezing && !bStumble && !bFrozen && bNextDodge && !bAttacking && movementStatus != EMovementStatus::EMS_Dead && bNotDead)
 	{
@@ -810,10 +809,8 @@ void ADefaultUnreal5Character::DodgeAndSprint()
 			bDoubleSprint = true;
 			bSprintCameraRotation = true;
 //			movementStatus = EMovementStatus::EMS_Sprint;
-		//	UE_LOG(LogTemp, Warning, TEXT("penis"));
 			if (!bToggledOn)
 			{
-			//	UE_LOG(LogTemp, Warning, TEXT("penis"));
 				animInstance->Montage_Play(characterAnims, 1.f);
 				//GetActorRotation().
 				SetActorRotation(FRotator(GetActorRotation().Pitch, GetActorRotation().Yaw+direction, GetActorRotation().Roll));
@@ -1263,7 +1260,6 @@ void ADefaultUnreal5Character::Interact()
 		//picking up from the ground
 		else if (!bPullingAxe && !bequippedWeapon && (activeOverlappedAxe || activeOverlappedBat))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("PickedUp"));
 			PickUp();
 				if (activeOverlappedAxe)
 				{
@@ -1311,8 +1307,6 @@ void ADefaultUnreal5Character::AxePickUp()
 
 	if (activeOverlappedAxe)
 	{
-
-		UE_LOG(LogTemp, Warning, TEXT("PickedUp"));
 		SetEquippedAxe(activeOverlappedAxe);
 		activeOverlappedAxe->Equip(this, true);
 		bPickedUpAxe = true;
@@ -1398,7 +1392,6 @@ void ADefaultUnreal5Character::Attack()
 		}
 			else if (!bequippedWeapon && !bStumble && !bFrozen && animInstance && !bAttacking)
 			{
-		//	UE_LOG(LogTemp, Warning, TEXT("nice4"));
 			if (headAxe  && !bPullingAxe)
 			{
 				UPlayerAnimInstance* playerAnim = Cast< UPlayerAnimInstance >(animInstance);
@@ -1822,8 +1815,7 @@ void ADefaultUnreal5Character::Unfreeze()
 	bBeforeFreeze = false;
 	bFreezing = false;
 	GetCharacterMovement()->bAllowPhysicsRotationDuringAnimRootMotion = true;
-	//allowrotation
-//	UE_LOG(LogTemp, Warning, TEXT("Penis3"));
+
 }
 
 

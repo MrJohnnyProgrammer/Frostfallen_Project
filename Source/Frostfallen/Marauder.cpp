@@ -260,9 +260,6 @@ void AMarauder::RealScream()
 				if (Cast<AEnemy>(OutResults[i].GetActor()) != this)
 					UGameplayStatics::ApplyDamage(OutResults[i].GetActor(), 6, OutResults[i].GetActor()->GetInstigatorController(), this, damageTypeClass);
 			}
-				
-
-		//	UE_LOG(LogTemp, Warning, TEXT("dick"));
 			
 		}
 		//UGameplayStatics::ApplyDamage(OutResults[i].GetActor(), 4, OutResults[i].GetActor()->GetInstigatorController() , this, damageTypeClass);

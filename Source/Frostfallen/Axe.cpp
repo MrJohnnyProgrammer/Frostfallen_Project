@@ -388,7 +388,7 @@ void AAxe::DeactivateBladeCollision()
 void AAxe::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 
-	UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *OtherActor->GetName());
+//	UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *OtherActor->GetName());
 
 	if(bThrown)
 	{
@@ -444,7 +444,7 @@ void AAxe::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 					 //Hit door
 					 else  if (Cast<AhitableDoor>(OtherActor))
 					 {
-						 UE_LOG(LogTemp, Warning, TEXT("Hit hitable door"));
+						// UE_LOG(LogTemp, Warning, TEXT("Hit hitable door"));
 							 UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitThrowSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, LoudAttenuation, concurrency, false);
 							 UGameplayStatics::ApplyDamage(OtherActor, 2, axeInstigator, this, damageTypeClass);
 
@@ -458,7 +458,7 @@ void AAxe::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 					 }
 					 else if (Cast<AShearableDoor>(OtherActor)	)
 					 {
-						 UE_LOG(LogTemp, Warning, TEXT("Hit shear door"));
+					//	 UE_LOG(LogTemp, Warning, TEXT("Hit shear door"));
 						 RotatingMovementComponent->Deactivate();
 						 ProjectileMovementComponent->Deactivate();
 

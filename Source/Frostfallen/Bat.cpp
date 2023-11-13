@@ -168,15 +168,7 @@ void ABat::BladeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* O
 	if (OtherActor != batHolder && OtherActor != this)
 	{
 		batInstigator = batHolder->GetInstigatorController();
-		/*	TArray<AActor*> overlappedActors;
-			OverlappedComponent->GetOverlappingActors(overlappedActors);
 
-
-			for (auto Actor : overlappedActors)
-			{
-				*/
-
-				//character = Cast<AEnemy>(Actor);
 		if (bThrown)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Bat throw hit"));
@@ -201,8 +193,6 @@ void ABat::BladeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* O
 
 		}
 
-
-		//	}
 		DeactivateBladeCollision();
 	}
 }
@@ -268,11 +258,8 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 			if (UStaticMeshComponent* mesh = Cast<UStaticMeshComponent>(OtherActor))
 			{
 				Drop();
-				//	UE_LOG(LogTemp, Warning, TEXT("DropPenis1"));
-			//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 				LoseHealth();
 				DeactivateBladeCollision();
-				//	UE_LOG(LogTemp, Warning, TEXT("Penis?"));
 			}
 			else if (ACharacter* character = Cast<ACharacter>(OtherActor))
 			{
@@ -287,8 +274,6 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 					}
 					LoseHealth();
 					Drop();
-					//	UE_LOG(LogTemp, Warning, TEXT("DropPenis1"));
-				//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 					DeactivateBladeCollision();
 				}
 			}
@@ -296,7 +281,6 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 			else if (Cast<AhitableDoor>(OtherActor))
 			{
 				//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
-					   //	 UE_LOG(LogTemp, Warning, TEXT("sex"));
 				RotatingMovementComponent->Deactivate();
 				ProjectileMovementComponent->Deactivate();
 
@@ -307,7 +291,6 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 				UGameplayStatics::ApplyDamage(OtherActor, 7, batInstigator, this, damageTypeClass);
 				LoseHealth();
 				Drop();
-				//	UE_LOG(LogTemp, Warning, TEXT("DropPenis1"));
 			//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 				DeactivateBladeCollision();
 			}
@@ -315,7 +298,6 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 			{
 				LoseHealth();
 				Drop();
-				//	UE_LOG(LogTemp, Warning, TEXT("DropPenis1"));
 			//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 				DeactivateBladeCollision();
 			}
@@ -324,7 +306,6 @@ void ABat::OnBladeHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPr
 		{
 			LoseHealth();
 			Drop();
-			//	UE_LOG(LogTemp, Warning, TEXT("DropPenis1"));
 		//	UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 			DeactivateBladeCollision();
 		}

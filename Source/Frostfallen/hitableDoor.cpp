@@ -75,7 +75,7 @@ float AhitableDoor::TakeDamage(float Damage, struct FDamageEvent const& DamageEv
 			doorAxe = Cast<AAxe>(DamageCauser);
 			doorAxe->DoorAxeAttach(this);
 			bFrozen = false;
-			UE_LOG(LogTemp, Warning, TEXT("parry %f frozen"), Damage);
+	//		UE_LOG(LogTemp, Warning, TEXT("parry %f frozen"), Damage);
 			return 0;
 		}
 	}
@@ -106,7 +106,7 @@ float AhitableDoor::TakeDamage(float Damage, struct FDamageEvent const& DamageEv
 						
 			if(doorBreakSound)
 				UGameplayStatics::SpawnSoundAtLocation(GetWorld(), doorBreakSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, LoudAttenuation, concurrency, false);
-			UE_LOG(LogTemp, Warning, TEXT("parry %f not frozen"), Damage);
+	//		UE_LOG(LogTemp, Warning, TEXT("parry %f not frozen"), Damage);
 			hitAxe->Drop();
 			bDead = true;
 			Destroy();

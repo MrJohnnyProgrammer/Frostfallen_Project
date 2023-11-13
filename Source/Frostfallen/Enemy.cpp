@@ -250,7 +250,6 @@ void AEnemy::RotationTimeLineFloatReturn(float value)
 		else if (bThrower)
 		{
 			playerToAi = UKismetMathLibrary::GetDirectionUnitVector(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)->GetActorLocation(), GetActorLocation());
-			// UE_LOG(LogTemp, Warning, TEXT("penis"));
 		}
 		else
 		{
@@ -282,7 +281,6 @@ void AEnemy::RotationTimeLineFloatReturn(float value)
 		FRotator aimRotation = FRotator(GetActorRotation().Pitch, yawRotation + 90, GetActorRotation().Roll);
 		FRotator newRotation = UKismetMathLibrary::RLerp(GetActorRotation(), aimRotation, value, true);
 		SetActorRotation(newRotation);
-	//	UE_LOG(LogTemp, Warning, TEXT("penis2"));
 //		DrawDebugLine(GetWorld(), endPoint, endPoint + FVector(0.0f, 0.0f, 1000.0f), FColor::Red, false, 0.f, 0, 2.0f);
 	}
 //s	DrawDebugLine(GetWorld(), endPoint, endPoint + FVector(0.0f, 0.0f, 1000.0f), FColor::Red, false, 0.f, 0, 2.0f);
@@ -364,7 +362,7 @@ float AEnemy::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, A
 {
 	//UE_LOG(LogTemp, Warning, TEXT("%s"), *EventInstigator->GetPawn()->GetName());
 	//1 = attack, 2 = throw, 3 = pullback after parry, 4 = FREEZE aka bomb, 5 = kill volume (fall), 6 = light stumble ,7 = bat, 8 = Kick 
-//	UE_LOG(LogTemp, Warning, TEXT("DamageBaby3"));
+
 	AAxe* damagerAxe;
 	damagerAxe = Cast<AAxe>(DamageCauser);
 	ABat* damagerBat;
@@ -491,7 +489,6 @@ float AEnemy::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, A
 				if (animInstance)
 				{
 				//	UE_LOG(LogTemp, Warning, TEXT("%F"), Damage);
-				//	UE_LOG(LogTemp, Warning, TEXT("DamageBaby"));
 					UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), hitSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
 					if ((health - 3) < 1)
 					{
@@ -509,7 +506,6 @@ float AEnemy::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, A
 			}
 			else if (Damage == 7)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("batHit"));
 				
 				UAudioComponent* sound = UGameplayStatics::SpawnSoundAtLocation(GetWorld(), kickedSound, GetActorLocation(), GetActorRotation(), 1.f, 1.f, 0.f, quietAttenuation, concurrency, false);
 				if ((health - 1) < 1)
@@ -579,13 +575,11 @@ void AEnemy::DirectionMovement(TArray<FVector> pathPoints)
 			{
 					direction = yawAngle - yawAngle2;
 				//	UE_LOG(LogTemp, Warning, TEXT("Direction  - : %f"), direction);
-			//		UE_LOG(LogTemp, Warning, TEXT(" "));
 			}
 			else if ((yawAngle - yawAngle2) > 180)
 			{
 					direction = yawAngle - yawAngle2 - 360	;
 					
-			//		UE_LOG(LogTemp, Warning, TEXT("higher"));
 			}
 			else if ((yawAngle - yawAngle2) < -180)
 			{
@@ -695,9 +689,4 @@ void AEnemy::BladeOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor*
 		combatCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	
-}
-
-void AEnemy::BladeOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-
 }

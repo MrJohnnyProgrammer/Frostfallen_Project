@@ -105,22 +105,6 @@ void ANPCS::NeckRotator()
 	else if ((GetActorRotation().Yaw - lookAtRot.Yaw) < -180)
 		neckRotYaw = GetActorRotation().Yaw - lookAtRot.Yaw + 360;
 
-	/*else if ((GetActorRotation().Yaw - lookAtRot.Yaw) > 180)
-		neckRotYaw = lookAtRot.Yaw - GetActorRotation().Yaw - 360;
-	else if ((GetActorRotation().Yaw - lookAtRot.Yaw) < -180)
-		neckRotYaw = lookAtRot.Yaw - GetActorRotation().Yaw + 360;
-
-	else if ((lookAtRot.Yaw - GetActorRotation().Yaw) > 100)
-	{
-		neckRotYaw = 0;
-		
-	}	
-	else if ((lookAtRot.Yaw - GetActorRotation().Yaw) < -100)
-	{
-		neckRotYaw = 0;
-	
-	}
-		*/
 
 	neckRotPitch = GetActorRotation().Pitch - lookAtRot.Pitch;
 	//UE_LOG(LogTemp, Warning, TEXT("%f"), neckRotYaw);
