@@ -1,5 +1,6 @@
 # Frostfallen_Project
-<h1>Combat and Level Prototype</h1>
+
+<h2>Combat and Level Prototype</h2>
 
 
 <h3>To install properly Fetch from GitHub desktop (or equivalent) and clone project</h3>
