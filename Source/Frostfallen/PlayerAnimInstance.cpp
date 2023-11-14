@@ -305,7 +305,7 @@ void UPlayerAnimInstance::FootFX(bool leftFoot)
 			EPhysicalSurface surface = floor->SurfaceType.GetValue();
 			FVector rotation = hit.ImpactNormal * -1;
 
-			decalStep = GetWorld()->SpawnActor<ADecalActor>(hit.Location, FRotator(rotation.Y, socketRotation.Yaw, rotation.X), spawnInfo);
+			
 		//	UE_LOG(LogTemp, Warning, TEXT("Yaw+offset: %f"), socketRotation.Yaw + yawOffset);
 			
 			switch (surface)
@@ -313,13 +313,14 @@ void UPlayerAnimInstance::FootFX(bool leftFoot)
 			case SurfaceType1:
 			//	UE_LOG(LogTemp, Warning, TEXT("inside"));
 			//	decalStep->SetDecalMaterial(player->insideStepDecal);
-				decalStep->SetDecalMaterial(player->insideStepDecal);
+			//	decalStep->SetDecalMaterial(player->insideStepDecal);
 				stepParticle = player->insideStepParticle;
 				stepSound = player->insideStepSound;
 				break;
 
 			case SurfaceType2:
 			//	UE_LOG(LogTemp, Warning, TEXT("snow"));
+				decalStep = GetWorld()->SpawnActor<ADecalActor>(hit.Location, FRotator(rotation.Y, socketRotation.Yaw, rotation.X), spawnInfo);
 				decalStep->SetDecalMaterial(player->snowStepDecal);
 				stepParticle = player->snowStepParticle;
 				stepSound = player->snowStepSound;
@@ -327,6 +328,7 @@ void UPlayerAnimInstance::FootFX(bool leftFoot)
 
 			case SurfaceType_Default:
 			//	UE_LOG(LogTemp, Warning, TEXT("Default"));
+				decalStep = GetWorld()->SpawnActor<ADecalActor>(hit.Location, FRotator(rotation.Y, socketRotation.Yaw, rotation.X), spawnInfo);
 				decalStep->SetDecalMaterial(player->snowStepDecal);
 				stepParticle = player->snowStepParticle;
 				stepSound = player->snowStepSound;
@@ -339,7 +341,7 @@ void UPlayerAnimInstance::FootFX(bool leftFoot)
 
 				UGameplayStatics::PlaySoundAtLocation(this, stepSound, socketLocation, 0.4f, 1.f, 0.f, quietAttenuation, concurrency);
 				
-				decalStep->SetLifeSpan(20);
+				decalStep->SetLifeSpan(80);
 				//UE_LOG(LogTemp, Warning, TEXT(" %s"), *stepSound->GetFName().ToString());
 				if (leftFoot)
 				{

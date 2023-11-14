@@ -216,10 +216,7 @@ void AEnemy::BeginPlay()
 	GetMesh()->SetMaterial(0, frozenMaterial);
 
 	combatCollision->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::BladeOverlapBegin);
-	combatCollision->OnComponentEndOverlap.AddDynamic(this, &AEnemy::BladeOverlapEnd);
-
-
-
+	
 	if (fCurve)
 	{
 		FOnTimelineFloat InterpFunction{};
