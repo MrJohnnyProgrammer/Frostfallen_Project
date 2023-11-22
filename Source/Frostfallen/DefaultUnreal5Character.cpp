@@ -332,10 +332,12 @@ ADefaultUnreal5Character::ADefaultUnreal5Character()
 	CameraBoom->bEnableCameraLag = true;
 	CameraBoom->bEnableCameraRotationLag = true;
 	CameraBoom->bDrawDebugLagMarkers = false;
-	CameraBoom->CameraLagSpeed = 10.f;
+	CameraBoom->CameraLagSpeed = 5.f;
 	CameraBoom->CameraRotationLagSpeed = 20.f;
-	CameraBoom->CameraLagMaxDistance = 100.f;
+	CameraBoom->CameraLagMaxDistance = 200.f;
 	CameraBoom->SetRelativeLocation(FVector(0.f, 0.f, 150.f)); //0,0,70
+	CameraBoom->SocketOffset(FVector(0.f, 100.f, 0.f));
+
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
@@ -496,7 +498,6 @@ void ADefaultUnreal5Character::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindAction("Pause", IE_Pressed, this, &ADefaultUnreal5Character::ESCDown);
 
 	PlayerInputComponent->BindAction("Toggle", IE_Pressed, this, &ADefaultUnreal5Character::ToggleOn);
-	PlayerInputComponent->BindAction("Toggle Left", IE_Pressed, this, &ADefaultUnreal5Character::ToggleLeft);
 	PlayerInputComponent->BindAction("Toggle Right", IE_Pressed, this, &ADefaultUnreal5Character::ToggleRight);
 
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &ADefaultUnreal5Character::MoveForward);

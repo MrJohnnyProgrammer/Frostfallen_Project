@@ -66,14 +66,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Visual | hit")
 	class USoundConcurrency* concurrency;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "pull")
-	class AAxe* pullingAxe;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = IK)
 	float ikInterpSpeed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
 	bool bIsinAir;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "pull")
+	class AAxe* pullingAxe;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Movement)
 	bool bLocked;
